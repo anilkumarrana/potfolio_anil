@@ -1,0 +1,335 @@
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+/* Default styles */
+.navbar nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    float: right;
+}
+
+/* Styles for mobile view */
+@media only screen and (max-width: 480px) {
+    .hamburger {
+        display: block;
+    }
+
+    .navbar nav ul {
+        display:none;
+        flex-direction: column;
+        gap: 20px;
+        background: #212529;
+        padding: 10px;
+    }
+
+    .navbar nav ul a {
+        font-size: 20px;
+    }
+
+    .navbar.nav-active nav ul {
+        display:flex;
+    }
+}
+body{
+    padding: 0px;
+    margin: 0px;
+}
+.main_part{
+    background: #212529 
+}
+.navbar{
+    display:block;
+    padding: 30px 80px;
+}
+.navbar nav ul{
+    display: flex;
+    gap:40px;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.navbar nav ul a {
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+    position: relative;
+}
+.navbar nav ul a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: rgb(244, 242, 242);
+    border-radius: 10px;
+    left: 0px;
+    bottom: -6px;
+    position:absolute;
+    transition: 0.5s;
+}
+.navbar nav ul a:hover::after{
+width: 100%;
+left: 0px;
+}
+.main_heading{
+    display: flex;
+    padding: 10px 200px;
+    /* justify-content:center; */
+    /* align-items: center; */
+    color: white;
+    height: 645px;
+}
+.main_heading_text{
+   padding-top:40px;
+   width: 40%;
+}
+.main_heading_text h1{ 
+   font-size: 40px;
+   font-family: Poppins sans-serif;
+   font-weight: 500;
+}
+.main_heading_text span{
+    color: rgb(211, 25, 25);
+    font-weight: 900;
+    position: relative;
+}
+.main_heading_text  h1 span::before{
+    content: '';
+    width:0;
+    height:4px;
+    background:rgb(241, 239, 239);
+    border-radius: 10px;
+    left:0px;
+    bottom:-6px;
+    position:absolute;
+    transition: 0.5s;
+}
+.main_heading_text  h1 span:hover::before{
+    width: 100%;
+}
+.main_heading_text p{
+    padding-top: 20px;
+    letter-spacing: 2px;
+}
+
+.main_heading_img{
+width: 40%;
+height: 630px;
+left: 10%;
+position: relative;
+padding-left: 100px;
+}
+.main_heading_img img{
+    width: 100%;
+    height: 100%;
+}
+
+.botton_resume{
+    background: black;
+    padding: 8px 20px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+}
+
+button a{
+    font-size: 20px;
+    text-decoration: none;
+    color: black; 
+}
+.share_logo {
+    display: flex;
+    width: 45px;
+    height: 45px;
+    /* background: black; */
+    margin-top:30px;
+    gap: 30px;
+}
+.share_logo i{
+    font-size: 40px;
+    color: white;
+}
+.change_background{
+    position: relative;
+    left:90%;
+    bottom: 85px;
+    border-radius:20px;
+    border: none;
+}
+button{
+    padding: 10px 30px;
+    margin-top: 50px;
+    cursor: pointer;
+    background:white;
+    border: 1px solid black;
+}
+button a{
+    color:black;
+}
+button:hover{
+    background: red;
+    transition: 2s;
+}
+button a:hover{
+    color: white;
+}
+.footer{
+    display: flex;
+    justify-content: space-around;
+    gap:40px;
+    /* align-items: center; */
+    margin-top:20px;
+    width: 100%;
+    height: 200px;
+    background: white;
+    padding: 10px 80px;
+
+}
+.footer_details{
+   display: block;
+}
+.footer_details h4{
+    display: inline;
+    font-size: 30px;
+    font-weight: 600;
+}
+.footer_details p{
+    display:block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 6px 0px;
+}
+.footer_details p a{
+    text-decoration: none;
+    color: #212529;
+}
+.footer_details p a:hover{
+    color: blue;
+}
+.footer_about_details{
+    width: 20%;
+    display: block;
+    /* margin-top: 20px; */
+}
+.footer_about_details h3{
+  font-size: 30px;
+  font-weight: 700;
+}
+.footer_about_details p{
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 1.5px;
+    margin-top: 10px;
+}
+
+@media only screen and (max-width:480px){
+    body{
+     padding: auto;
+     margin: auto;
+    }
+    .main_part  nav{
+        display:block;
+        padding: 05px;
+        height: 30px;
+    }
+    .main_part  nav ul a{
+        display: none;
+    }
+    .navbar{
+        display: none;
+        margin: 0px;
+        padding: 0px;
+        display:block;
+        
+    }
+    .main_heading{
+        /* display:flex; */
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+        height: max-content;
+    }
+    .main_heading_text{
+        display: block;
+        width: 100%;
+        padding: 10px;
+    }
+    .main_heading_img{
+        display: none;
+    }
+    .change_background1{
+        /* display: block; */
+        position:relative;
+        left:80%;
+        bottom: 40px;
+        width: 10px;
+        height: 10px;
+        border-radius:10px;
+    }
+    .botton_resume{
+        font-size: 10px;
+    }
+    button {
+        margin-top: 15px;
+        padding: 07px 15px;
+    }
+    button a{
+        font-size: 10px;
+        padding: 0px;
+        margin: 0px;
+        gap: 10px;
+        margin: 0px;
+    }
+    .share_logo {
+        width: 100%;
+        margin-top: 20px;
+        gap: 10px;
+    }
+    .share_logo i{
+        font-size: 20px;
+        padding-left: 0px;
+    }
+    .footer{
+        display:flex;
+        flex-wrap:wrap;
+        width: 100%;
+        height: max-content;
+        padding: 10px;
+        margin: 0px;
+    }
+    .footer_about_details{
+        width: 40%; 
+    }
+    .footer_about_details h4{
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .footer_about_details p{
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+    
+    .footer_details p {
+        font-size: 10px;
+        line-height: 0px;
+    }
+    .about us{
+        display: none;
+       
+    }
+}
+
+
