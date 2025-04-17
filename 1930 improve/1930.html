@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1930</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        body {}
+
+        nav {
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background-color: dodgerblue;
+        }
+
+        nav .nav_center ul {
+            display: flex;
+            gap: 1rem;
+            list-style-type: none;
+        }
+
+        nav .nav_center ul li {
+            font-weight: 700;
+            color: #ccc;
+        }
+
+        nav .nav_center ul li:hover {
+            color: white;
+            cursor: pointer;
+        }
+
+        main .slider {
+            height: 100vh;
+        }
+
+        main .slider img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .slider {
+            display: flex;
+        }
+
+        .slider .slider_left {
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            width: 50%;
+        }
+
+        .slider .slider_left h1 {
+            font-size: 3rem;
+        }
+
+        .slider .slider_right {
+            width: 50%;
+        }
+
+        .complain {
+            padding: 3rem;
+            background-color: darkgray;
+        }
+
+        .complain_info_wrapper {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .complain_options {
+            width: 10%;
+        }
+
+        .complain_options ul {
+            display: flex;
+            flex-flow: column;
+            align-items: flex-start;
+            list-style-type: none;
+            gap: 0.5rem;
+        }
+
+        .complain_options ul li {
+            width: 100%;
+            cursor: pointer;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .option_selected{
+            background-color: white;
+            border-radius: 5rem;
+        }
+        
+        .complain_options ul li:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 5rem;
+        }
+
+        .complain_info {
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            background-color: cadetblue;
+        }
+
+        .complain_info h3,
+        .mail_instruction h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .complain_info ol,
+        .mail_instruction ol {
+            display: flex;
+            flex-flow: column;
+            gap: 0.5rem;
+        }
+
+        .mail_form form {
+            display: flex;
+            flex-flow: column;
+            gap: 1rem;
+        }
+
+        .mail_form form .mail_by {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        .mail_form form .form_box {
+            display: flex;
+            flex-flow: column;
+            width: 100%;
+        }
+
+        input {
+            height: 2.5rem;
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem;
+            width: 100%;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: 0.2rem solid dodgerblue;
+        }
+
+        textarea {
+            min-height: 200px;
+            font-size: 1rem;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 6px;
+        }
+
+        .mail_form form .form_box label {
+            font-size: 0.8rem;
+            padding: 0 0.5rem;
+        }
+
+        .mail_body {
+            display: flex;
+            flex-flow: column;
+            gap: 1rem;
+        }
+
+        .mail_form form button {
+            width: fit-content;
+            padding: 0.5rem;
+        }
+
+        .mail_wrapper {
+            display: none;
+            width: 90%;
+        }
+        
+        .mail {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .voice_wrapper {
+            width: 90%;
+            display: none;
+        }
+
+        .voice {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .mail_instruction {
+            width: 40%;
+            padding: 2rem;
+            border-radius: 12px;
+            background-color: orangered;
+            color: white;
+        }
+
+        .mail_form,
+        .voice_record {
+            width: 60%;
+            padding: 2rem;
+            border-radius: 12px;
+            background-color: lightpink;
+        }
+
+        .voice_record {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .recorder {
+            cursor: pointer;
+            height: 200px;
+            width: 200px;
+            background-color: black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .button {
+            height: 70%;
+            width: 70%;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.8s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: greenyellow;
+        }
+
+        red {
+	color: red;
+}
+
+#controls {
+  display: flex;
+  gap: 1rem;
+} 
+
+.voice_record button {
+  flex-grow: 1;
+  height: 150px;
+  width: 150px;
+  /* min-width: 10rem; */
+  border: 1rem solid black;
+  /* border-radius: 0.15rem; */
+  border-radius: 50%;
+  background: #25af02;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.voice_record button:hover, .voice_record button:focus {
+  outline: none;
+  background: black;
+  color: white;
+  border: 1rem solid white;
+}
+
+.voice_record button::-moz-focus-inner {
+  border: 0;
+}
+
+.voice_record button:active {
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+  line-height: 3rem;
+}
+
+.voice_record button:disabled {
+  pointer-events: none;
+  background: lightgray;
+  color: black;
+}
+
+audio {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+#formats {
+  margin-top: 0.5rem;
+  font-size: 80%;
+  display: none;
+}
+
+#recordingsList{
+	max-width: 28em;
+    list-style-type: none;
+}
+
+#recordingsList li a{
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    background-color: black;
+    text-decoration: none;
+    color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+#recordingsList li a:hover{
+background-color: white;
+color: black;
+}
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="complain">
+            <h1>Raise your complain.</h1>
+            <div class="complain_info_wrapper">
+                <div class="complain_options">
+                    <ul>
+                        <li id="mail">Mail</li>
+                        <li id="voice">Voice</li>
+                    </ul>
+                </div>
+
+                <div class="complain_info">
+                    <h3>General Tips:</h3>
+                    <ol>
+                        <li>
+                            Be Clear and Concise: Keep your communication straightforward and to the point.
+                        </li>
+
+                        <li>
+                            Include Evidence: If possible, attach or mention any evidence that supports your report.
+                        </li>
+
+                        <li>
+                            Stay Calm and Polite: Maintain a professional tone in your communication.
+                        </li>
+
+                        <li>
+                            Provide Contact Information: Ensure the authorities can reach you for additional details or
+                            clarification.
+                        </li>
+
+                        <li>
+                            Follow Up: If you don't receive a response within a reasonable time frame, consider
+                            following up on
+                            your report.
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="mail_wrapper enquiry">
+                    <div class="mail">
+                        <div class="mail_instruction">
+                            <h3>Writing an Email to Report Cybercrimes:</h3>
+                            <ol>
+                                <li>
+                                    Subject Line: Use a clear and concise subject line that summarizes the issue.
+                                </li>
+
+
+                                <li>
+                                    Introduction: Start with a polite greeting and a brief introduction mentioning the
+                                    purpose of your email.
+                                </li>
+
+                                <li>
+                                    Details: Provide specific details about the cybercrime incident, including:
+                                    Any relevant evidence or supporting information (screenshots, emails, etc.)
+                                    Date and time of the incident (if known)
+                                    Description of what happened
+                                    Any financial losses or damages incurred (if applicable)
+                                </li>
+
+                                <li>
+                                    Contact Information: Include your contact information (name, email, phone number)
+                                    for follow-up or additional questions.
+                                </li>
+
+                                <li>
+                                    Conclusion: Express gratitude for their attention and request confirmation of
+                                    receipt or any next steps.
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="mail_form">
+                            <form action="">
+                                <div class="mail_by">
+                                    <div class="form_box">
+                                        <label for="name">Name</label>
+                                        <input type="text" placeholder="Name">
+                                    </div>
+
+                                    <div class="form_box">
+                                        <label for="address">Address</label>
+                                        <input type="text" placeholder="Address">
+                                    </div>
+
+                                    <div class="form_box">
+                                        <label for="Contact">Contact No: </label>
+                                        <input type="text" placeholder="Contact">
+                                    </div>
+                                </div>
+
+                                <div class="mail_body">
+                                    <div class="form_box">
+                                        <label for="subject">Subject</label>
+                                        <input type="text">
+                                    </div>
+
+                                    <div class="form_box">
+                                        <label for="subject">Complain Message</label>
+                                        <textarea name="" id=""></textarea>
+                                    </div>
+                                </div>
+
+                                <button>Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="voice_wrapper enquiry">
+                    <div class="voice">
+                        <div class="mail_instruction">
+                            <h3>Leaving a Voice Message to Report Cybercrimes:</h3>
+                            <ol>
+                                <li>
+                                    Introduction: Start by clearly stating your name and the purpose of your call.
+                                </li>
+
+                                <li>
+                                    Details: Provide a concise but thorough description of the cybercrime incident,
+                                    including the same details mentioned for the email.
+                                </li>
+
+                                <li>
+                                    Contact Information: Speak slowly and clearly when leaving your contact information.
+                                    Repeat it if necessary to ensure accuracy.
+                                </li>
+
+                                <li>
+                                    Request for Follow-Up: Politely request a return call for further information or
+                                    clarification if needed.
+                                </li>
+
+                                <li>
+                                    Conclusion: Thank them for their attention and willingness to address the issue.
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="voice_record">
+                            <div id="controls">
+                                <button id="recordButton">Record</button>
+                                <button id="pauseButton" disabled>Pause</button>
+                                <button id="stopButton" disabled>Stop</button>
+                             </div>
+                             <div id="formats"></div>
+                             <div class="recordlist">
+                                <ol id="recordingsList"></ol>
+                             </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+  	<script src="js/recorder.js"></script>
+  	<script src="js/app.js"></script>
+    </main>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    complain_info = $('.complain_info');
+    main_section = $('.mail');
+    voice_section = $('.voice');
+    $('.complain_options li').click(function () {
+        $('.complain_options li').removeClass('option_selected');
+        $(this).addClass('option_selected');
+        selectedOption = this.id;
+        complain_info.hide();
+        $('.enquiry').hide();
+        $(`.${selectedOption}_wrapper`).show();
+    });
+</script>
+
+</html>
